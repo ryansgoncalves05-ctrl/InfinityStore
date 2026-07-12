@@ -1,20 +1,124 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infinity Store - Roleta</title>
 
-<title>Infinity Store</title>
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#0f172a,#1e3a8a);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+color:white;
+}
+
+.caixa{
+background:#111827;
+padding:30px;
+border-radius:20px;
+text-align:center;
+width:340px;
+box-shadow:0 0 20px #000;
+}
+
+h1{
+color:#38bdf8;
+margin-bottom:10px;
+}
+
+p{
+color:#cbd5e1;
+}
+
+input{
+width:90%;
+padding:12px;
+border:none;
+border-radius:10px;
+margin-top:15px;
+font-size:16px;
+}
+
+button{
+margin-top:15px;
+padding:12px 25px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:10px;
+font-size:17px;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+background:#1d4ed8;
+}
+
+#resultado{
+margin-top:20px;
+font-size:22px;
+font-weight:bold;
+color:#22c55e;
+}
+</style>
 
 </head>
 
 <body>
 
-<h1>Infinity Store</h1>
+<div class="caixa">
 
-<p>Bem-vindo à Roleta Oficial.</p>
+<h1>🎁 Infinity Store</h1>
+
+<p>Digite seu código da roleta</p>
+
+<input id="codigo" placeholder="Ex: INF12345">
+
+<br>
+
+<button onclick="girar()">Girar Roleta</button>
+
+<div id="resultado"></div>
+
+</div>
+
+<script>
+
+function girar(){
+
+const codigo=document.getElementById("codigo").value;
+
+if(codigo==""){
+alert("Digite um código!");
+return;
+}
+
+const premios=[
+"🌱 Moon Bloom",
+"🌶️ Ghost Pepper",
+"🔥 Dragon Breath",
+"💎 Hypno Bloom",
+"🚿 5x Super Warning"
+"🚿 5x Super Sprinkler"
+"🦝 Racon"
+"🦄 Unicórnio"
+"🦋 Dragon Fly"
+];
+
+const premio=premios[Math.floor(Math.random()*premios.length)];
+
+document.getElementById("resultado").innerHTML=
+"🎉 Você ganhou:<br><br>"+premio;
+
+}
+
+</script>
 
 </body>
-
 </html>
